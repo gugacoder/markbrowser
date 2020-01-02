@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  .container
+
+    if (canEdit)
+      .breadcrumb
+        .row
+          .col-sm-8.filename
+            span.text-muted= page
+          .col-sm-4.text-right
+            .btn-group(role="group")
+              if (exists)
+                a.btn.btn-default.btn-sm(href="#{site.prefix}#{page}/edit")
+                  i.fa.fa-fw.fa-pencil
+                  | Editar
+              else
+                a.btn.btn-default.btn-sm(href="#{site.prefix}#{page}/edit")
+                  i.fa.fa-fw.fa-plus
+                  | Criar
+
+    div.content!= content

@@ -1,2 +1,2 @@
 # markbrowser
-Browser de páginas Markdown.
+Browser para páginas Markdown.

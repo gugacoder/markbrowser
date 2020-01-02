@@ -1,0 +1,12 @@
+Package: mark-browser
+Version: 0.2.0
+Section: httpd
+Priority: optional
+Architecture: all
+Depends: nodejs, apache2, pandoc
+Installed-Size: 23344
+Maintainer: Guga Coder <guga.coder@gmail.com>
+Description: MarkBrowser - Navegador de documentos Markdown.
+ .
+ MarkBrowser é um website para criação e exploração de
+ documentos mantidos em arquivo texto no formato Markdown.

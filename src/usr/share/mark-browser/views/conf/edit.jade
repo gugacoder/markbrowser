@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  .space
+  form(role="form", method="post")
+    .container
+      .row
+        .col-md-12
+          ul.nav.nav-tabs
+            li.active
+              a(href='#{site.prefix}/conf#{page}') #{page}
+      .breadcrumb
+        .row
+          .col-sm-12.text-right
+            .btn-group(role="group")
+              - var path = resource.slice(0, -('/edit'.length));
+              a.btn.btn-default.btn-sm(href="#{site.prefix}#{path}") Cancelar
+              button.btn.btn-primary.btn-sm(type="submit")
+                i.fa.fa-fw.fa-upload
+                | Salvar
+
+      textarea.no-wrap(name="content", data-widearea="enable", data-widearea-id="1", class="widearea", style="width:100%", rows=20, wrap="off")!= content
+      script(type='text/javascript') wideArea();
+      hr

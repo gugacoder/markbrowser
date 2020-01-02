@@ -1,0 +1,21 @@
+form(method='POST', action='../upload/files/demo', role='form', enctype="multipart/form-data")
+
+  input(type='hidden', name='up.uid', value='email')
+
+  .form-group
+    label Candidato
+    input.form-control(type='text', name='nome', placeholder='Fulano de Tal', required)
+
+  .form-group
+    label Email
+    input.form-control(type='email', name='email', placeholder='user@host.com', required)
+
+  .form-group
+    label Currículo
+    input.form-control(type='file', name='curriculo', required)
+
+  .form-group
+    label Exame
+    input.form-control(type='file', name='exame', required)
+
+  button.btn.btn-primary(type='submit') Upload

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .section
+    .container
+      h3 Hmm! Alguma coisa não está certa.
+      hr
+      h4 #{error.status|500}
+      p #{message}
+      pre #{error.stack}

@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+  .section.profile
+    .container
+
+      .row
+        .col-md-12
+          if (user)
+            i.fa.fa-5x.fa-fw.fa-user
+            .caption
+              h3= user.username
+              p #{user.name} (#{user.role})
+          else
+            h4 Usuário não autenticado
+
+      hr
+
+      if (user.homepage)
+        .space
+          .row
+            .col-md-12
+              h4 Página inicial
+              a(href="#{site.prefix}#{user.homepage}")= user.homepage
+
+
+      .space
+      .row
+        .col-md-12
+          h4 Permissões
+          ul
+            if (user.role == 'admin')
+              li Administração do site
+            if (user.role == 'admin' || user.role == 'editor')
+              li Edição de páginas
+            li Visualização de páginas
+            li Upload de arquivos

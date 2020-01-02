@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+  .container
+    form(role="form", method="post")
+
+      .breadcrumb
+        .row
+          .col-sm-8.filename
+            span.text-muted= page
+          .col-sm-4.text-right
+            .btn-group(role="group")
+              a.btn.btn-default.btn-sm(href="#{site.prefix}#{page}") Cancelar
+              button.btn.btn-primary.btn-sm(type="submit")
+                i.fa.fa-fw.fa-upload
+                | Salvar
+
+      textarea(name="content", data-widearea="enable", data-widearea-id="1", class="widearea", style="width:100%", rows=25, wrap="off")!= content
+      script(type='text/javascript') wideArea();
+
+      .breadcrumb
+        .row
+          .col-sm-12.text-right
+            .btn-group(role="group")
+              a.btn.btn-default.btn-sm(href="#{site.prefix}#{page}") Cancelar
+              button.btn.btn-primary.btn-sm(type="submit")
+                i.fa.fa-fw.fa-upload
+                | Salvar

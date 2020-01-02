@@ -1,0 +1,136 @@
+doctype html
+html
+  head
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width,  initial-scale=1")
+
+    meta(name="description", content="#{site.description}")
+
+    title= site.title
+
+    link(rel='stylesheet',  href='#{site.prefix}/vendor/widearea/widearea.min.css')
+    link(rel='stylesheet',  href='#{site.prefix}/vendor/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet',  href='#{site.prefix}/vendor/bootstrap/css/bootstrap-theme.min.css')
+    link(rel='stylesheet',  href='#{site.prefix}/vendor/pingendo/pingendo.css')
+    link(rel='stylesheet',  href='#{site.prefix}/vendor/pingendo/font-awesome.min.css')
+    link(rel='stylesheet',  href='#{site.prefix}/stylesheets/style.css')
+    link(rel='stylesheet',  href='#{site.prefix}/stylesheets/login.css')
+    link(rel='stylesheet',  href='#{site.prefix}/vendor/google-code-prettify/prettify.css')
+
+    script(src="#{site.prefix}/vendor/jquery/jquery.min.js")
+    script(src="#{site.prefix}/vendor/bootstrap/js/bootstrap.min.js")
+    script(src="#{site.prefix}/vendor/widearea/widearea.min.js")
+    script(src="#{site.prefix}/vendor/google-code-prettify/run_prettify.js")
+
+  body
+    .navbar.navbar-default.navbar-static-top.navbar-fixed-top
+      .container
+
+        .navbar-header
+          button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navbar-ex-collapse")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="#{site.prefix}/")
+            img.img-brand(src="#{site.prefix}/favicon.ico")
+            span= site.title
+
+        #navbar-ex-collapse.collapse.navbar-collapse
+
+          //- menu esquerdo
+          ul.nav.navbar-nav
+
+            //- espaços pinados
+            each space in site.spaces
+              if (space.pinned)
+                -
+                  var linkClass = '';
+                  if (resource) {
+                    var radical = new RegExp("^/" + space.name);
+                    if (resource.match(radical))
+                      linkClass = 'active';
+                  }
+                li(class="#{linkClass}")
+                  a(href="#{site.prefix}#{space.homepage}")
+                    i.fa.fa-fw(class="#{space.icon}")
+                    | #{space.title}
+
+          //- menu direito
+          ul.nav.navbar-nav.navbar-right
+
+            //- perfil de usuario
+            if (user)
+
+              //- página inicial do usuario
+              if (user.homepage)
+                li
+                  a(href="#{site.prefix}#{user.homepage}")
+                    i.fa.fa-fw.fa-home.navbar-icon
+                    | Início
+
+              //- menu suspenso
+              li.dropdown
+                a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-expanded="false")
+                  i.fa.fa-fw.fa-user.navbar-icon
+                  | #{user.name} &nbsp;
+                  i.fa.fa-caret-down
+                ul.dropdown-menu(role="menu")
+                  li
+                    a(href="#{site.prefix}/users/profile") Perfil
+                  if (user.homepage)
+                    li
+                      a(href="#{site.prefix}#{user.homepage}") Início
+                  li.divider
+                  li
+                    a(href="#{site.prefix}/users/logout") Sair
+            else
+              li
+                a(href="#{site.prefix}/users/login")
+                  i.fa.fa-fw.fa-user.navbar-icon
+                  | Entrar
+
+            //- configuracoes
+            if (user && (user.role == 'admin'))
+              - var prefix = "/conf";
+              - var radical = new RegExp("^" + prefix);
+              if (resource && resource.match(radical))
+                li.active
+                  a(href="#{site.prefix}#{prefix}")
+                    i.fa.fa-fw.fa-gear.navbar-icon
+                    span.hidden-lg.hidden-md.hidden-sm Configurações
+              else
+                li
+                  a(href="#{site.prefix}#{prefix}")
+                    i.fa.fa-fw.fa-gear.navbar-icon
+                    span.hidden-lg.hidden-md.hidden-sm Configurações
+
+    //- área de notificação
+    if (error && (error != ''))
+      .space
+      .container
+        .row
+          .col-sm-12
+            .alert.alert-dismissable.alert-danger= error
+              button.close(type="button", data-dismiss="alert") ×
+    if (info && (info != ''))
+      .space
+      .container
+        .row
+          .col-sm-12
+            .alert.alert-dismissable.alert-info= info
+              button.close(type="button", data-dismiss="alert") ×
+
+    div.workplace
+      .space
+      block content
+      .space
+
+    footer.section.section-primary
+      .container
+        .row
+          .col-sm-12
+            h4= site.title
+            p= site.description
+            small
+              em Powered by MarkBrowser - Copyleft (ɔ) all rights reversed.

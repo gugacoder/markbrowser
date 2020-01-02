@@ -1,0 +1,117 @@
+body {
+  margin-top: 52px;
+}
+textarea {
+  padding: 10px;
+  font-family: monospace;
+  overflow: auto;
+}
+textarea.widearea-fullscreen {
+  max-width: none !important;
+}
+th,td {
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}
+pre {
+  border: none !important;
+}
+h1 a, h1 a:hover,
+h2 a, h2 a:hover,
+h3 a, h3 a:hover,
+h4 a, h4 a:hover,
+h5 a, h5 a:hover,
+h6 a, h6 a:hover {
+  color: black !important;
+  text-decoration: none !important;
+}
+h1 a:hover::after,
+h2 a:hover::after,
+h3 a:hover::after,
+h4 a:hover::after,
+h5 a:hover::after,
+h6 a:hover::after {
+  content: '¶' !important;
+  font-size: 0.8em !important;
+  margin-left: 10px !important;
+  color: #aaa !important;
+}
+table {
+  margin-bottom: 10px;
+}
+.workplace {
+  min-height: 400px;
+}
+.workplace a {
+  text-decoration: underline;
+}
+.workplace a.btn {
+  text-decoration: none;
+}
+.content {
+}
+.not-found {
+  padding-top: 40px;
+  font-size: 1.2em;
+}
+.breadcrumb .filename {
+  padding-top: 3px;
+}
+.widearea-icons {
+  right: 20px;
+}
+.navbar-nav .fa {
+  font-size: 1.2em;
+}
+.no-wrap {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
+.settings {
+}
+.profile {
+  padding: 40px;
+}
+.space {
+  min-height: 20px;
+  min-width: 20px;
+}
+.breadcrumb {
+  margin-bottom: 0px;
+  border-radius: 0px !important;
+}
+.jumbotron {
+  border-radius: 0px !important;
+}
+.img-brand {
+  display: inline-block !important;
+  width: 20px;
+  height: auto;
+  margin-top: -3px;
+  margin-right: 5px;
+}
+#TOC {
+  float: right;
+  margin-top: 55px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #DCDEE6;
+  border-radius: 4px;
+  background-color: ghostwhite;
+}
+#TOC ul {
+  list-style: none;
+  padding-left: 20px;
+}
+#TOC > ul {
+  padding: 0;
+}
+*[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -55px;
+  height: 55px;
+  visibility: hidden;
+}

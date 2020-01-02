@@ -1,0 +1,35 @@
+{
+  "name": "mark-browser",
+  "title": "MarkBrowser",
+  "prefix": "mark",
+  "description": "Navegador de documentos Markdown, Textile e Jade.",
+  "copyright": "Powered by MarkBrowser - Copyleft (ɔ) all rights reversed.",
+  "filesystem": {
+    "homepage": "/homepage.jade"
+  },
+  "auth": {
+    "ldap": false,
+    "ldapSettings": {
+      "url": "ldap://host.com",
+      "baseDN": "OU=Users,DC=Host,DC=com",
+      "username": "user",
+      "password": "password"
+    }
+  },
+  "spaces": [
+    {
+      "name": "wiki",
+      "title": "Wiki",
+      "homepage": "about.md",
+      "icon": "fa-bank",
+      "pinned": true
+    },
+    {
+      "name": "help",
+      "title": "Ajuda",
+      "homepage": "index.md",
+      "icon": "fa-question-circle",
+      "pinned": true
+    }
+  ]
+}

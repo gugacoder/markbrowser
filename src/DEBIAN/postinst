@@ -1,0 +1,31 @@
+#!/bin/sh
+set -e
+
+rm -f /etc/init.d/mark-browser
+ln -s /usr/share/mark-browser/conf/init.d.conf /etc/init.d/mark-browser
+
+rm -f /etc/apache2/sites-available/mark-browser.conf
+ln -s /usr/share/mark-browser/conf/apache2.conf /etc/apache2/sites-available/mark-browser.conf
+
+rm -f /etc/apache2/sites-available/mark-browser
+ln -s /usr/share/mark-browser/conf/apache2.conf /etc/apache2/sites-available/mark-browser
+
+rm -rf /usr/share/mark-browser/demo
+ln -s /var/lib/mark-browser/demo /usr/share/mark-browser/demo
+
+test -e /etc/default/mark-browser || cp /usr/share/mark-browser/conf/default /etc/default/mark-browser
+
+adduser --system mark-browser || true
+usermod -s /bin/bash mark-browser || true
+usermod -g www-data mark-browser || true
+
+/etc/init.d/mark-browser start
+
+a2enmod proxy || true
+a2enmod proxy_http || true
+a2enmod rewrite || true
+a2ensite mark-browser || true
+service apache2 restart || true
+
+echo "[info]MarkBrowser instalado:"
+echo "  http://wiki.localhost/"

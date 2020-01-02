@@ -1,0 +1,28 @@
+extends ../layout
+
+mixin tab(file)
+  if (page == file)
+    li.active
+      a(href='#{site.prefix}/conf#{file}') #{file}
+  else
+    li
+      a(href='#{site.prefix}/conf#{file}') #{file}
+
+block content
+  .space
+  .container
+    .row
+      .col-md-12
+        ul.nav.nav-tabs
+          +tab('/site.json')
+          +tab('/users.json')
+    .breadcrumb
+      .row
+        .col-sm-12.text-right
+          .btn-group(role="group")
+            a.btn.btn-default.btn-sm(href="#{site.prefix}#{resource}/edit")
+              i.fa.fa-fw.fa-pencil
+              | Editar
+
+    pre.no-wrap.prettyprint.settings!= content
+    hr

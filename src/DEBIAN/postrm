@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+a2dissite mark-browser || true
+service apache2 reload || true
+
+rm -f /etc/init.d/mark-browser
+rm -f /etc/apache2/sites-available/mark-browser

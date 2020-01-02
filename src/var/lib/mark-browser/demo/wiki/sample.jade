@@ -1,0 +1,25 @@
+.row
+  .col-sm-4.col-sm-offset-4
+
+    :markdown
+      Sample Form
+      ==========
+
+    form(method='POST', action='/upload/tmp/folder/file', role='form', enctype="multipart/form-data")
+
+      input(type='hidden', name='up.uid', value='email')
+      input(type='hidden', name='up.fwd', value='/wiki/sample.textile')
+
+      .form-group
+        label Email
+        input.form-control(type='email', name='email', value='guga.coder@gmail.com')
+
+      .form-group
+        label One File
+        input.form-control(type='file', name='files')
+
+      .form-group
+        label Another File
+        input.form-control(type='file', name='files')
+
+      button.btn.btn-primary(type='submit') Upload

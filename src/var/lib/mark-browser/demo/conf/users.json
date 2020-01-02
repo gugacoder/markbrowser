@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "username": "user",
+      "name": "User",
+      "password": "user",
+      "role": "user"
+    },
+    {
+      "username": "editor",
+      "name": "Editor",
+      "password": "editor",
+      "role": "editor",
+      "homepage": "/users/editor-homepage.md"
+    },
+    {
+      "username": "admin",
+      "name": "Administrador",
+      "password": "admin",
+      "role": "admin",
+      "homepage": "/users/admin-homepage.md"
+    }
+  ]
+}

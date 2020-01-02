@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  .section
+    .container
+      form.form-signin(method='post',action='#{site.prefix}/users/login')
+        h2.form-signin-heading Login
+        hr
+        label.sr-only(for='username') Usuário
+        input#username.form-control(name='username', placeholder='Usuário', required='', autofocus='')
+        label.sr-only(for='password') Senha
+        input#password.form-control(name='password', placeholder='Senha', required='', type='password')
+        button.btn.btn-lg.btn-primary.btn-block(type='submit') Entrar
+        div.checkbox
+          label
+            input#remember_me(name='remember_me', type='checkbox', value='yes')
+            | Permanecer logado
+        hr
+        a(href="#{site.prefix}/") Ou continue como anônimo . . .

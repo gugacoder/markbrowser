@@ -1,0 +1,18 @@
+# Parâmetros de inicialização do MarkBrowser
+
+# Porta de execução do MarkBrowser
+# A mudança de porta também deve ser feita no arquivo de configuração do site do
+# apache em /etc/apache2/sites-available/mark-browser
+port=8000
+
+# Usuário de execução do serviço
+user=mark-browser
+
+# Pasta raiz do sítio hospedado no MarkBrowser
+site=/var/lib/mark-browser/demo
+
+# Argumentos adicionais para execução do MarkBrowser
+# Os argumentos diponiveis são:
+#   --prefix PREFIXO
+#               Prefixo para a URI do site, como http://host.com/prefixo/
+#args=--prefix mark
